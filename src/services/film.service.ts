@@ -13,8 +13,13 @@ async function edit(film : {id: number, description: string}) {
     if(exist.rowCount !== 1) throw errors.notFound("Filme");
 };
 
+async function deleteFilm(film : {id: number}) {
+    const exist = await filmRepository.deleteFilm(film);
+    if(exist.rowCount !== 1) throw errors.notFound("Filme");
+};
+
 
 export const filmService = {
     create,
-    edit
+    edit, deleteFilm
 };

@@ -13,7 +13,12 @@ async function edit(film : {id: number, description: string}): Promise<any> {
     `, [film.id, film.description])
 };
 
+async function deleteFilm(film : {id: number}): Promise<any> {
+    return await connection.query(`DELETE FROM filme WHERE id = $1;
+    `, [film.id])
+};
+
 
 export const filmRepository = {
-    create, edit
+    create, edit, deleteFilm
 };

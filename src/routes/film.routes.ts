@@ -7,4 +7,6 @@ const filmRouter = Router();
 
 filmRouter.post("/filme", validateSchema(filmSchema), filmController.create)
 filmRouter.put("/filme/:id", validateSchema(editFilm), filmController.edit)
+filmRouter.delete("/filme/:id", filmController.deleteFilm)
+
 export default filmRouter;

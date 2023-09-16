@@ -17,7 +17,14 @@ async function edit(req: Request, res: Response) {
     res.status(httpStatus.OK).send("Filme editado!");
 };
 
+async function deleteFilm(req: Request, res: Response) {
+    const {id} = req.params;
+    await filmService.deleteFilm({id: Number(id)});
+
+    res.status(httpStatus.OK).send("Filme excluído!");
+};
+
 
 export const filmController = {
-    create, edit
+    create, edit, deleteFilm
 };
