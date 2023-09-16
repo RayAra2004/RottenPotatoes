@@ -10,7 +10,7 @@ export default function errorHandlingMiddleware(
     ){
     switch(error.code){
         case "23505":
-            return res.status(httpStatus.CONFLICT).send("Informação já existente");
+            return res.status(httpStatus.CONFLICT).send("Filme já existente");
         case "23503":
             return res.status(httpStatus.NOT_FOUND).send(error.detail);
     }
