@@ -7,10 +7,17 @@ async function create(req: Request, res: Response) {
     
     await filmService.create(req.body);
 
-    res.status(httpStatus.CREATED).send();
+    res.status(httpStatus.CREATED).send("Filme criado!");
+};
+
+async function edit(req: Request, res: Response) {
+    const {id} = req.params;
+    await filmService.edit({id: Number(id), description: req.body.description});
+
+    res.status(httpStatus.OK).send("Filme editado!");
 };
 
 
 export const filmController = {
-    create
+    create, edit
 };

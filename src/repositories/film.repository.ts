@@ -8,7 +8,12 @@ async function create(film: Film) {
     `, [film.name, film.premiereDate, film.description, film.nota])
 };
 
+async function edit(film : {id: number, description: string}): Promise<any> {
+    return await connection.query(`UPDATE filme SET description = $2 WHERE id = $1;
+    `, [film.id, film.description])
+};
+
 
 export const filmRepository = {
-    create
+    create, edit
 };

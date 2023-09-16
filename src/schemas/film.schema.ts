@@ -10,3 +10,7 @@ export const filmSchema = joi.object<Film>({
     description: joi.string().min(50).required(),
     nota: joi.number().integer().required()
 })
+
+export const editFilm = joi.object<{description:string}>({
+    description: joi.string().min(50).required()
+})
