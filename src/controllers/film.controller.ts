@@ -24,7 +24,12 @@ async function deleteFilm(req: Request, res: Response) {
     res.status(httpStatus.OK).send("Filme excluído!");
 };
 
+async function get(req: Request, res: Response){
+    const films = await filmService.get();
+    res.send(films.rows);
+}
+
 
 export const filmController = {
-    create, edit, deleteFilm
+    create, edit, deleteFilm, get
 };

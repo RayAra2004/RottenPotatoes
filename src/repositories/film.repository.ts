@@ -18,7 +18,11 @@ async function deleteFilm(film : {id: number}): Promise<any> {
     `, [film.id])
 };
 
+async function get(){
+    return await connection.query(`SELECT * FROM filme ORDER BY "premiereDate" desc`)
+}
+
 
 export const filmRepository = {
-    create, edit, deleteFilm
+    create, edit, deleteFilm, get
 };
